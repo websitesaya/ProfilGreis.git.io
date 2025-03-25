@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-image: url('images/Latar.jpg'); /* Menggunakan gambar sebagai latar belakang */
+            background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh halaman */
+            background-position: center; /* Memusatkan gambar latar belakang */
+            background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-section {
+            background-color: rgb(238, 187, 221);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .buttons input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .buttons input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-section">
+        <h1>Feedback</h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label>What kind of comment would you like to send?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="comment_type" value="complaint"> Complaint
+                    </label>
+                    <label>
+                        <input type="radio" name="comment_type" value="problem"> Problem
+                    </label>
+                    <label>
+                        <input type="radio" name="comment_type" value="suggestion"> Suggestion
+                    </label>
+                    <label>
+                        <input type="radio" name="comment_type" value="praise"> Praise
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Enter your comments in the space provided below:</label>
+                <textarea id="comments" name="comments" rows="5"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Tell me how to get in touch with you:</label>
+                <input type="text" name="name" placeholder="Name">
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="tel" name="tel" placeholder="Tel">
+                <input type="text" name="fax" placeholder="FAX">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="contact_preference"> 
+                    Please contact me as soon as possible regarding this matter
+                </label>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Submit Comments">
+                <input type="reset" value="Clear Form">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

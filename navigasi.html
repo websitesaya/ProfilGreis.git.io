@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Navigasi | Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-image: url('images/Latar.jpg'); /* Pastikan path ini benar */
+            --hover-color: #34495e;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            background-image: var(--background-image); /* Menggunakan variabel untuk gambar latar belakang */
+            background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh halaman */
+            background-position: center; /* Memusatkan gambar latar belakang */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navigation-container {
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            background-image: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: #ecf0f1;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, var(--secondary-color), transparent);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--secondary-color);
+            color: white;
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        @media screen and (max-width: 480px) {
+            .navigation-container {
+                width: 90%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation-container">
+        <div class="nav-links">
+            <a href="biografi.html" target="konten" class="nav-link">
+                Biografi
+            </a>
+            <a href="galeri.html" target="konten" class="nav-link">
+                Foto Galeri
+            </a>
+            <a href="favorite.html" target="konten" class="nav-link">
+                Favorite
+            </a>
+            <a href="feedback.html" target="konten" class="nav-link">
+                Feedback
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Profesional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-image: url('images/Latar.jpg'); /* Pastikan path ini benar */
+            --text-color: #333;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-image: var(--background-image); /* Menggunakan variabel untuk gambar latar belakang */
+            background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh halaman */
+            background-position: center; /* Memusatkan gambar latar belakang */
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            border: 5px solid;
+            border-image: linear-gradient(45deg, #ff41e6, #ff41e6, #ff41e6) 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .gallery-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="section-title">Galeri Foto</h1>
+        
+        <div class="gallery">
+            <div class="gallery-item" onclick="openLightbox('images/Foto1.jpg')">
+                <img src="images/Foto1.jpg" alt="Foto 1">
+                <div class="image-overlay">
+                    <p>Foto Pemandangan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto2.jpg')">
+                <img src="images/Foto2.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto3.jpg')">
+                <img src="images/Foto3.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto5.jpg')">
+                <img src="images/Foto5.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto6.jpg')">
+                <img src="images/Foto6.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto7.jpg')">
+                <img src="images/Foto7.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto8.jpg')">
+                <img src="images/Foto8.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/Foto9.jpg')">
+                <img src="images/Foto9.jpg" alt="Foto 2">
+                <div class="image-overlay">
+                    <p>Foto Perjalanan</p>
+                </div>
+        </div>
+    </div>
+
+    <div class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.classList.contains('lightbox') || 
+                event.target.classList.contains('close-btn')) {
+                const lightbox = document.querySelector('.lightbox');
+                lightbox.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Favorit Saya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-image: url('images/Latar.jpg'); /* Pastikan path ini benar */
+            --card-background: rgba(248, 152, 242, 0.8);
+            --text-color: #333;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-image: var(--background-image); /* Menggunakan variabel untuk gambar latar belakang */
+            background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh halaman */
+            background-position: center; /* Memusatkan gambar latar belakang */
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .favorites-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .favorites-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .favorites-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .favorites-card h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .favorites-list {
+            list-style-type: none;
+        }
+
+        .favorites-list li {
+            padding: 10px;
+            background-color: #f3d9d9;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: background-color var(--transition-speed);
+        }
+
+        .favorites-list li::before {
+            content: '▸';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .favorites-list li:hover {
+            background-color: #f3d9d9;
+        }
+
+        .ordered-list {
+            list-style-type: decimal;
+            padding-left: 30px;
+            background-color: #f3d9d9;
+        }
+
+        .ordered-list li {
+            background-color: transparent;
+            padding: 8px;
+            margin-bottom: 5px;
+            transition: color var(--transition-speed);
+        }
+
+        .ordered-list li:hover {
+            color: var(--secondary-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .favorites-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="section-title">Hal-hal yang Saya Sukai</h1>
+
+    <div class="favorites-container">
+        <div class="favorites-card">
+            <h2>Hobi</h2>
+            <ul class="favorites-list">
+                <li>Membaca Buku</li>
+                <li>Olahraga</li>
+                <li>Mendengarkan Musik</li>
+                <li>Fotografi</li>
+                <li>Traveling</li>
+            </ul>
+        </div>
+
+        <div class="favorites-card">
+            <h2>Film Favorit</h2>
+            <ol class="ordered-list">
+                <li>Inception</li>
+                <li>The Shawshank Redemption</li>
+                <li>Interstellar</li>
+                <li>The Matrix</li>
+                <li>Forrest Gump</li>
+            </ol>
+        </div>
+
+        <div class="favorites-card">
+            <h2>Musik Favorit</h2>
+            <ol class="ordered-list">
+                <li>Bohemian Rhapsody - Queen</li>
+                <li>Imagine - John Lennon</li>
+                <li>Stairway to Heaven - Led Zeppelin</li>
+                <li>Shape of You - Ed Sheeran</li>
+                <li>Billie Jean - Michael Jackson</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
